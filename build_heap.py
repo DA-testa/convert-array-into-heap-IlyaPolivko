@@ -24,7 +24,8 @@ def sift_down(data, i, swaps):
     return swaps
     
 def main():
-    n = int(input())
+    n = input().strip()
+    n = int(n)
     data = list(map(int, input().split()))
     assert len(data) == n
     swaps = build_heap(data)
