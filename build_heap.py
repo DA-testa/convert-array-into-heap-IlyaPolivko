@@ -1,4 +1,5 @@
 # python3
+import re
 
 
 def build_heap(data):
@@ -24,8 +25,11 @@ def sift_down(data, i, swaps):
     return swaps
     
 def main():
-    n = input().strip()
-    n = int(n)
+    input_string = input()
+    match = re.match(r'^\d+$', input_string.strip())
+    if match is None:
+        raise ValueError('Invalid input: {}'.format(input_string.strip()))
+    n = int(match.group(0))
     data = list(map(int, input().split()))
     assert len(data) == n
     swaps = build_heap(data)
